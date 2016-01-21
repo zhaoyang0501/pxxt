@@ -29,7 +29,7 @@
 				<c:if test="${sessionScope.adminuser.username=='admin'}">
 				
 					<li><a href="${pageContext.request.contextPath}/admin/user/index"><i class="icon-pencil"></i>学生管理</a></li>
-					<li><a href="${pageContext.request.contextPath}/admin/category/index"><i class="icon-pencil"></i>教师管理</a></li>
+					<li><a href="${pageContext.request.contextPath}/admin/teacher/index"><i class="icon-pencil"></i>教师管理</a></li>
 					<li><a href="${pageContext.request.contextPath}/admin/news/create"><i class="icon-pencil"></i>公告发布</a></li>	
 					<li><a href="${pageContext.request.contextPath}/admin/news/create"><i class="icon-pencil"></i>培训计划管理</a></li>	
 					</c:if>
