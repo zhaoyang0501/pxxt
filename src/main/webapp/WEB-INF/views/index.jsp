@@ -1,198 +1,239 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Smart - UI Elements</title>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Envor HTML5/CSS3 Template">
+    <meta name="author" content="Suono Libero ( @rivathemes.com )">
+    <link rel="shortcut icon" href="favicon.ico">
 
-		<!-- Bootstrap -->
-		<link href="css/bootstrap.css" rel="stylesheet">
-		<link href="css/font-awesome.css" rel="stylesheet">
-		<link href="css/style.css" rel="stylesheet">
+    <title>Envor HTML5/CSS3 Template</title>
 
-		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		<!--[if lt IE 9]>
-		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
-	</head>
-	<body>
-	<div class="container">			
-		<header>
-			<h1>订单查询
-			</h1>	
-		</header> 
-	</div>
-		
-			
-	<div class="content">
-		<div class="container">
-		<div class="row">
-					<div class="col-sm-12">
-					
-					<div class="panel panel-default">
-						 <div class="panel-heading">订单状态查询</div>
-						 <div class="panel-body">
-							<div class="text-center center-block">
-						<form role="form" class="form-inline">
-						 <div class="form-group">
-							<label for="input-email" class="sr-only">会员名称</label>
-							<input id="input-email" type="email" placeholder="会员名称" class="form-control">
-						 </div>
-						  <div class="form-group">
-							<label for="input-email" class="sr-only">订单日期起</label>
-							<input id="input-email" type="email" placeholder="订单日期起" class="form-control">
-						 </div>
-						  <div class="form-group">
-							<label for="input-email" class="sr-only">订单日期止</label>
-							<input id="input-email" type="email" placeholder="订单日期止" class="form-control">
-						 </div>
-						 <button type="submit" class="btn btn-success">查询</button>
-					  </form>
-							</div>
-						 </div>
-					
-					</div>
-					</div>
-				</div>
-			</div>	
-				<div class="container">
-				<div class="row">
-					<div class="col-sm-12">
-				<h2>订单详情</h2>
-				   <table class="table table-bordered table-striped">
-						<thead>
-							<tr>
-								<th>
-									订单编号
-								</th>
-								<th>
-									商品名称
-								</th>
-								<th>
-									规格
-								</th>
-								<th>
-									单价
-								</th>
-								<th>
-									数量
-								</th>
-								<th>
-									实际支付
-								</th>
-								<th>
-									状态
-								</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>
-									1100000006965714
-								</td>
-								<td>
-									AMD FX系列八核 FX-8300盒装CPU
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!-- Custom CSS -->
+    <link href="css/animate.css" rel="stylesheet" type="text/css">
+    <link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css">
+    <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/colorbox-skins/4/colorbox.css" type="text/css">
+        <link href="css/main.css" rel="stylesheet" type="text/css">
+    
 
-								</td>
-								<td>
-									橙色
-								</td>
-								<td>
-									5500
-								</td>
-								<td>
-									1
-								</td>
-								<td>
-									5500
-								</td>
-								<td>
-									<span class="label label-danger">已发货</span>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									1100000006965714
-								</td>
-								<td>
-									AMD FX系列八核 FX-8300盒装CPU
+    <link href="css/header/h1.css" rel="stylesheet" type="text/css">
+    <link href="css/responsive.css" rel="stylesheet" type="text/css">
+    <link href="css/color1.css" rel="stylesheet" type="text/css" id="envor-site-color">
+    <link href="css/rivathemes.css" rel="stylesheet" type="text/css">
 
-								</td>
-								<td>
-									橙色
-								</td>
-								<td>
-									5500
-								</td>
-								<td>
-									1
-								</td>
-								<td>
-									5500
-								</td>
-								<td>
-									<span class="label label-danger">已发货</span>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									1100000006965714
-								</td>
-								<td>
-									AMD FX系列八核 FX-8300盒装CPU
+    <!-- LayerSlider styles -->
+    <link rel="stylesheet" href="css/layerslider/css/layerslider.css" type="text/css">
 
-								</td>
-								<td>
-									橙色
-								</td>
-								<td>
-									5500
-								</td>
-								<td>
-									1
-								</td>
-								<td>
-									5500
-								</td>
-								<td>
-									<span class="label label-danger">已发货</span>
-								</td>
-							</tr>
-							
-						</tbody>
-					</table>
-				</div>
-				</div></div>
-				</div>
-	</div>
-		
-		<!-- Footer -->
-		<footer class="footer">
-			<div class="row">
-				<div class="twelve col">
-					 <p class="text-muted text-center">Copyright © 2015 XX单位 <a href="http://www.miibeian.gov.cn/">京ICP备15062073号-1</a></p>
-		
-				</div>
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="js/vendor/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+  </head>
+
+    <body>
+  
+
+    <!--[if lt IE 7]>
+    <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+    <![endif]-->
+   
+   	<%@include file="./header.jsp" %>
+   
+   <div class="envor-content" style="padding-top: 0px;">
+      <section class="envor-desktop-breadscrubs">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="envor-desktop-breadscrubs-inner">
+                <a href="index.html">首页</a><i class="fa fa-angle-double-right"></i>高校查询
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="envor-section">
+        <div class="container">
+          <div class="row" style="margin-bottom: 30px">
+           <div class="col-lg-4"></div>
+			  <div class="col-lg-4">
+			    <div class="input-group">
+			      <input type="text" class="form-control" placeholder="高校名称">
+			      <span class="input-group-btn">
+			        <button class="btn btn-default" type="button">查询</button>
+			      </span>
+			    </div>
+			  </div>
+			  <div class="col-lg-4"></div>
 			</div>
-		</footer>
-		
-		
-		
+			<table class="table table-bordered">
+			<thead>
+				<tr>
+					  <th>排行</th>
+						<th>学校名称</th>
+						<th>地区</th>
+						<th>类别</th>
+				 </tr>
+			</thead>
+			<tbody>
+				<tr>
+					 	 <th>1</th>
+						<th><a href="#">北京大学</a> </th>
+						<th>北京</th>
+						<th>综合</th>
+				 </tr>
+				 <tr>
+					 	 <th>2</th>
+						<th><a href="#">清华大学</a> </th>
+						<th>北京</th>
+						<th>综合</th>
+				 </tr>
+				  <tr>
+					 	 <th>3</th>
+						<th><a href="#">负担</a> </th>
+						<th>北京</th>
+						<th>综合</th>
+				 </tr>
+			</tbody>
+			</table>
+        </div>
+      </section>
+    </div>
+    
+	<%@include file="./footer.jsp" %>
 
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="js/jquery-1.11.1.js"></script>
-		<script src="js/bootstrap.js"></script>
-		<script src="js/jquery.slimscroll.js"></script>
-		<script src="js/gmaps.js"></script>
-		<script src="js/main.js"></script>
-	
-	
-	</body>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+        <script src="js/vendor/jquery-1.11.0.min.js"></script>
+
+    <script src="js/vendor/core-1.0.5.js"></script>
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.mCustomScrollbar.min.js"></script>
+    <script src="js/jquery.mousewheel.min.js"></script>
+    <script src="js/jquery.colorbox-min.js"></script>
+    <script src="js/preloadCssImages.jQuery_v5.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <!--
+    * jQuery with jQuery Easing, and jQuery Transit JS
+    //-->
+    <script src="js/layerslider/jquery-easing-1.3.js" type="text/javascript"></script>
+    <script src="js/layerslider/jquery-transit-modified.js" type="text/javascript"></script>
+    <!--
+    * LayerSlider from Kreatura Media with Transitions
+    -->
+    <script src="js/layerslider/layerslider.transitions.js" type="text/javascript"></script>
+    <script src="js/layerslider/layerslider.kreaturamedia.jquery.js" type="text/javascript"></script>
+    <script src="js/jquery.rivathemes.js"></script>
+    <script type="text/javascript">
+      $('document').ready(function() {
+          /*
+
+          Home Page Layer Slider
+
+          */
+          $('#layerslider').layerSlider({
+            skinsPath               : 'css/layerslider/skins/',
+            skin : 'fullwidth',
+            thumbnailNavigation : 'hover',
+            hoverPrevNext : false,
+            responsive : false,
+            responsiveUnder : 1170,
+            sublayerContainer : 1170
+          });
+          /*
+
+          Latest Projects Slider
+          
+          */
+          $('#latest-projects').rivaSlider({
+            visible : 4,
+            selector : 'envor-project'
+          });
+          /*
+
+          Our Partners Slider
+
+          */
+          $('#our-partners').rivaCarousel({
+            visible : 5,
+            selector : 'envor-partner-logo',
+            mobile_visible : 1
+          });
+          /*
+
+          Footer News Slider
+
+          */
+          $('#footer-news').rivaSlider({
+            visible : 1,
+            selector : 'envor-post-preview'
+          });
+          /*
+
+          Testimonials #1 Carousel
+
+          */
+          $('#clients-testimonials').rivaCarousel({
+            visible : 1,
+            selector : 'envor-testimonials-1',
+            mobile_visible : 1
+          });
+      });
+    </script>
+    <script src="js/envor.js"></script>
+    <script type="text/javascript">
+      $('document').ready(function() {
+          /*
+
+          Preload Images
+
+          */
+          var imgs = new Array(), $imgs = $('img');
+          for (var i = 0; i < $imgs.length; i++) {
+            imgs[i] = new Image();
+            imgs[i].src = $imgs.eq(i).attr('src');
+          }
+          Core.preloader.queue(imgs).preload(function() {
+            var images = $('a').map(function() {
+                    return $(this).attr('href');
+            }).get();
+            Core.preloader.queue(images).preload(function() {
+                  $.preloadCssImages();
+            })
+          })
+                  $('#envor-preload').hide();
+      });
+      /*
+      Windows Phone 8 и Internet Explorer 10
+
+      */
+      if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+        var msViewportStyle = document.createElement("style")
+        msViewportStyle.appendChild(
+          document.createTextNode(
+            "@-ms-viewport{width:auto!important}"
+          )
+        )
+        document.getElementsByTagName("head")[0].appendChild(msViewportStyle)
+      }
+    </script>
+  </body>
 </html>
