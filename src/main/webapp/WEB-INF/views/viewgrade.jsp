@@ -72,29 +72,44 @@
         <div class="container">
           <div class="row" style="margin-bottom: 30px">
           <div class='col-lg-12'>
-			<article class="envor-post">
+			<article >
                   
                 <header>
-                  <h3 style="margin-top: 0px;"><i class="fa fa-pencil"></i> <span>${news.title }</span></h3>
-                  
-                </header>
-                
-                ${news.context }
-                
-                <div class="date">
-                  <span class="day"><fmt:formatDate value="${news.createDate}" pattern="dd"/></span>
-                  <span class="month"><fmt:formatDate value="${news.createDate}" pattern="MM yyyy"/></span>
+                  <h3 style="margin-top: 0px;"><i class="fa fa-pencil"></i> <span>${grade.name }</span>  <span class="label label-success">${grade.state }</span></h3>
              
-                </div>
-                <div class="likes">
-                  <span><i class="fa fa-thumbs-up"></i></span>
-                  <span class="month">15 likes</span>
-                </div>
-              <!--
-
-              Post end
-
-              //-->
+                </header>
+                <p>开班时间：水电费水电费</p>
+                  <p>课程介绍：  ${grade.remark }</p>
+                    <p>课表：</p>
+              	<table class="table table-bordered">
+				<tbody>
+					<tr>
+						<td>星期一</td>
+						<td>
+						<ul>
+		                    <li>
+		                      <a href="work">就业情况</a>
+		                   </li>
+		                     <li>
+		                      <a href="work">就业情况</a>
+		                   </li>
+		                     <li>
+		                      <a href="work">就业情况</a>
+		                   </li>
+                		  </ul>
+						</td>
+					 </tr>
+					<tr>
+						<td>星期一</td>
+						<td>星期一</td>
+					 </tr>
+					 <tr>
+						<td>星期一</td>
+						<td>星期一</td>
+					 </tr>
+				</tbody>
+			</table>
+                
               </article>           		 		
           </div>
           	

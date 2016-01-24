@@ -98,7 +98,7 @@
 			<tbody>
 			<c:forEach items="${grades }" var="bean">
 				<tr>
-						<th><a href="viewschool?school.id=${bean.id }">${bean.name }</a> <img src="http://www.bjsxt.com/statics/images/bjsxt/kb_new.gif" style="opacity: 1;"></th>
+						<th><a href="viewgrade?id=${bean.id }">${bean.name }</a> <img src="http://www.bjsxt.com/statics/images/bjsxt/kb_new.gif" style="opacity: 1;"></th>
 						<th> <fmt:formatDate value="${bean.begin }" pattern="yyyy/MM/dd" />至<fmt:formatDate value="${bean.end }" pattern="yyyy/MM/dd" /> </th>
 						<th><fmt:formatDate value="${bean.report }" pattern="yyyy/MM/dd" /></th>
 						<th><fmt:formatDate value="${bean.createDate }" pattern="yyyy/MM/dd" /></th>

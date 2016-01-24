@@ -1,4 +1,4 @@
-jQuery.timetable = {
+jQuery.work = {
 		userDataTable:null,
 		initSearchDataTable : function() {
 			if (this.userDataTable == null) {
@@ -26,15 +26,15 @@ jQuery.timetable = {
 					"sServerMethod" : "POST",
 					"bProcessing" : true,
 					"bSort" : false,
-					"sAjaxSource" : $.ace.getContextPath() + "/admin/timetable/list",
+					"sAjaxSource" : $.ace.getContextPath() + "/admin/work/list",
 					"fnDrawCallback" : function(oSettings) {
 						$('[rel="popover"],[data-rel="popover"]').popover();
 					},
 					"fnServerData" : function(sSource, aoData, fnCallback) {
-						var name = $("#_grade").val();
+						var name = $("#_name").val();
 						if (!!name) {
 							aoData.push({
-								"name" : "gradeid",
+								"name" : "name",
 								"value" : name
 							});
 						}
@@ -45,35 +45,29 @@ jQuery.timetable = {
 							"data" : aoData,
 							"success" : function(data){
 								fnCallback(data);
-								//jQuery.timetable.table_rowspan("#dt_table_view",0);
 							}
 						});
 					},
 					"aoColumns" : [{
-						"mDataProp" : "week"
+						"mDataProp" : "id"
+					}, {
+						"mDataProp" : "user.name"
 					},{
-						"mDataProp" : "begin"
+						"mDataProp" : "workdate"
 					},{
-						"mDataProp" : "end"
+						"mDataProp" : "cash"
 					},{
-						"mDataProp" : "category.name"
+						"mDataProp" : "unit"
 					},{
-						"mDataProp" : "teacher.name"
+						"mDataProp" : "school"
 					},{
 						"mDataProp" : ""
 					}],
 					"aoColumnDefs" : [
 						{
-							'aTargets' : [0],
+							'aTargets' : [6],
 							'fnRender' : function(oObj, sVal) {
-								return  " 星期"+sVal;
-							}
-						},
-						
-						{
-							'aTargets' : [5],
-							'fnRender' : function(oObj, sVal) {
-								return" <button class=\"btn2 btn-info\" onclick=\"$.timetable.showEdit("+oObj.aData.id+")\"><i class=\"icon-edit\"></i> 修改</button>  <button class=\"btn2 btn-info\" onclick=\"$.timetable.deleteUser("+oObj.aData.id+")\"><i class=\"icon-trash\"></i> 删除</button>";
+								return" <button class=\"btn2 btn-info\" onclick=\"$.work.showEdit("+oObj.aData.id+")\"><i class=\"icon-edit\"></i> 修改</button>  <button class=\"btn2 btn-info\" onclick=\"$.work.deleteUser("+oObj.aData.id+")\"><i class=\"icon-trash\"></i> 删除</button>";
 							}
 						},
 					 {
@@ -95,12 +89,12 @@ jQuery.timetable = {
 	            if(result){
 	            	$.ajax({
 	        			type : "get",
-	        			url : $.ace.getContextPath() + "/admin/timetable/delete/"+id,
+	        			url : $.ace.getContextPath() + "/admin/work/delete/"+id,
 	        			dataType : "json",
 	        			success : function(json) {
 	        				if(json.state=='success'){
 	        					noty({"text":""+ json.msg +"","layout":"top","type":"success","timeout":"2000"});
-	        					$.timetable.initSearchDataTable();
+	        					$.work.initSearchDataTable();
 	        				}else{
 	        					noty({"text":""+ json.resultMap.msg +"","layout":"top","type":"warning"});
 	        				}
@@ -119,7 +113,7 @@ jQuery.timetable = {
 			$("#id").val(id);
 			$.ajax({
     			type : "get",
-    			url : $.ace.getContextPath() + "/admin/timetable/get/"+id,
+    			url : $.ace.getContextPath() + "/admin/work/get/"+id,
     			dataType : "json",
     			success : function(json) {
     				if(json.state=='success'){
@@ -136,45 +130,19 @@ jQuery.timetable = {
 		saveUser: function(id){
 			$.ajax({
     			type : "post",
-    			url : $.ace.getContextPath() + "/admin/timetable/save",
+    			url : $.ace.getContextPath() + "/admin/work/save",
     			data:$("form").serialize(),
     			dataType : "json",
     			success : function(json) {
     				if(json.state=='success'){
     					$("#_modal").modal('hide');
     					noty({"text":""+ json.msg +"","layout":"top","type":"success","timeout":"2000"});
-    					$.timetable.initSearchDataTable();
+    					$.work.initSearchDataTable();
     				}else{
     					noty({"text":""+ json.msg +"","layout":"top","type":"warning"});
     				}
     			}
     		});
-		},
-		table_rowspan :function(table_id, table_colnum) {
-            table_firsttd = "";
-            table_currenttd = "";
-            table_SpanNum = 0;
-            colnum_Obj = $("#dt_table_view tr td:nth-child(1)");
-            colnum_Obj1 = $("#dt_table_view tr td:nth-child(2)");
-            colnum_Obj3 = $("#dt_table_viewtr td:nth-child(3)");
-            alert("colnum_Obj"+colnum_Obj.length);
-            colnum_Obj.each(function (i) {
-            	alert(i);
-                if (i == 0) {
-                    table_firsttd = $(this);
-                    table_SpanNum = 1;
- 
-                } else {
-                    table_currenttd = $(this);
-                    if (table_firsttd.text() == table_currenttd.text()&&colnum_Obj1.eq(i-1).text()==colnum_Obj1.eq(i).text()&&colnum_Obj3.eq(i-1).text()==colnum_Obj3.eq(i).text()) {
-                        table_SpanNum++;
-                        table_currenttd.hide(); 
-                        table_firsttd.attr("rowSpan", table_SpanNum);
-                    } else {
-                        table_firsttd = $(this);
-                        table_SpanNum = 1;
-                    }
-                }
-            });
-        }
+		}
+		
 };

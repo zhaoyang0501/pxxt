@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.pzy.entity.User;
@@ -61,6 +62,11 @@ public class FrontController {
 	public String grade(Model model) {
 		model.addAttribute("grades", gradeService.findAll());
 		return "grade";
+	}
+	@RequestMapping("viewgrade")
+	public String viewgrade( Long id,Model model) {
+		model.addAttribute("grade", gradeService.find(id));
+		return "viewgrade";
 	}
 	@RequestMapping("dologin")
 	public String dologin(User user,HttpSession httpSession,Model model) {

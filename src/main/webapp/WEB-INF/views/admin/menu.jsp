@@ -30,6 +30,8 @@
 					<li><a href="${pageContext.request.contextPath}/admin/user/index"><i class="icon-pencil"></i>学生管理</a></li>
 					<li><a href="${pageContext.request.contextPath}/admin/teacher/index"><i class="icon-pencil"></i>教师管理</a></li>
 					<li><a href="${pageContext.request.contextPath}/admin/news/create"><i class="icon-pencil"></i>公告发布</a></li>
+					<li><a href="${pageContext.request.contextPath}/admin/work/index"><i class="icon-pencil"></i>就业管理</a></li>
+					<li><a href="${pageContext.request.contextPath}/admin/score/index"><i class="icon-pencil"></i>成绩管理</a></li>
 					<li><a href="${pageContext.request.contextPath}/admin/category/index"><i class="icon-pencil"></i>课程管理</a></li>	
 					<li><a href="${pageContext.request.contextPath}/admin/grade/index"><i class="icon-pencil"></i>培训计划管理</a></li>	
 					<li><a href="${pageContext.request.contextPath}/admin/timetable/index"><i class="icon-pencil"></i>课表管理</a></li>
