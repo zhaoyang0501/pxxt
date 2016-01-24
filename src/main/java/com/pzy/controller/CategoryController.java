@@ -27,8 +27,10 @@ public class CategoryController {
 	private CategoryService categoryService;
 	@RequestMapping("index")
 	public String index(Model model) {
-		return "admin/category/index";
+		
+      		return "admin/category/index";
 	}
+	
 	@RequestMapping(value = "/list", method = RequestMethod.POST)
 	@ResponseBody
 	public Map<String, Object> list(
