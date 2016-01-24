@@ -23,7 +23,7 @@
 	<!--  falgun框架样式 -->
 	<link href="${pageContext.request.contextPath}/admin/css/styles.css?sdf=1" rel="stylesheet">
 	<link href="${pageContext.request.contextPath}/admin/css/theme-default.css" rel="stylesheet">
-	<link href="http://www.bootcss.com/p/bootstrap-datetimepicker/bootstrap-datetimepicker/css/datetimepicker.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath}/admin/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 	<!--[if IE 7]>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/admin/css/font-awesome-ie7.min.css">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/admin/css/ie/ie7.css" />

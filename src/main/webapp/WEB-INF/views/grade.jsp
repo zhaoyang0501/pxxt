@@ -56,64 +56,62 @@
    	<%@include file="./header.jsp" %>
    
    <div class="envor-content" style="padding-top: 0px;">
-      </section>
-      
-        <!--
-
-      LayerSlider start
-
-      //-->
-      <section class="envor-section envor-home-slider">
-        <div id="layerslider" class="envor-layerslider" style="height: 500px;">
-          <!--LayerSlider layer-->
-          <div class="ls-layer" style="transition3d: 1,4,5,11; transition2d: 2,8,30;">
-            <!--LayerSlider background-->
-            <img class="ls-bg" src="img/head1.jpg" alt="layer1-background">
-          </div>
-          <!--LayerSlider layer-->
-          <div class="ls-layer" style="transition3d: 2,3,6,14; transition2d: 4,5,23;">
-            <!--LayerSlider background-->
-            <img class="ls-bg" src="img/head5.jpg" alt="layer1-background">
-           
-          </div>
-          <!--LayerSlider layer-->
-          <div class="ls-layer" style="transition3d: 2,3,6,14; transition2d: 4,5,23;">
-            <!--LayerSlider background-->
-            <img class="ls-bg" src="img/head6.jpg"  style="width: 1024px" alt="layer1-background">
-          </div>
-        </div>
-      <!--
-
-      LayerSlider end
-
-      //-->
-      </section>
-      <!--
-
-      Call To Action start
-
-      //-->
-      <section class="envor-section envor-section-align-center">
+      <section class="envor-desktop-breadscrubs">
         <div class="container">
           <div class="row">
             <div class="col-lg-12">
-              <h2>我们致力于培养高端就业人才！CCTV上榜教育培训机构</h2>
-              <p>
-              专业化、高质量的教学体系使 “学员发愁的不是找工作，而是如何挑工作。 ” 对于每个参加 培训的学员，毕业都能找到一份合适的工作，看学员学的程度如何，基础学的很好的学员毕业都拿到了很满意的工作。 我们在几年的时间里已经培养了近千名学员，这些学员广泛就业于 IBM 、惠普、新浪、联想、NEC 等国内外知名企业，从事 JAVA 软件开发工作，他们中的很多人现在都已经成为项目经理甚至是技术总监。
-              </p>
-              <p>
-                <a href="" class="envor-btn envor-btn-primary envor-btn-normal"><i class="glyphicon glyphicon-check"></i> 立即报名!</a>
-              </p>
+              <div class="envor-desktop-breadscrubs-inner">
+                <a href="index.html">首页</a><i class="fa fa-angle-double-right"></i>班次信息
+              </div>
             </div>
           </div>
         </div>
-      <!--
-
-      Call To Action end
-
-      //-->
       </section>
-
+      
+      <section class="envor-section">
+        <div class="container">
+          <!-- <div class="row" style="margin-bottom: 30px">
+           <div class="col-lg-4"></div>
+			  <div class="col-lg-4">
+			  <form action="school"  method="post">
+			    <div class="input-group">
+			      <input type="text" name='key' class="form-control" placeholder="高校名称">
+			      <span class="input-group-btn">
+			        <button class="btn btn-default" type="submit">查询</button>
+			      </span>
+			    </div>
+			     </form>
+			  </div>
+			  <div class="col-lg-4"></div>
+			</div> -->
+			<table class="table table-bordered">
+			<thead>
+				<tr>
+						<th>班次</th>
+						<th>开班日期</th>
+						<th>截止报名日期</th>
+						<th>发布时间</th>
+						<th>状态</th>
+						<th>报名</th>
+				 </tr>
+			</thead>
+			<tbody>
+			<c:forEach items="${grades }" var="bean">
+				<tr>
+						<th><a href="viewschool?school.id=${bean.id }">${bean.name }</a> <img src="http://www.bjsxt.com/statics/images/bjsxt/kb_new.gif" style="opacity: 1;"></th>
+						<th> <fmt:formatDate value="${bean.begin }" pattern="yyyy/MM/dd" />至<fmt:formatDate value="${bean.end }" pattern="yyyy/MM/dd" /> </th>
+						<th><fmt:formatDate value="${bean.report }" pattern="yyyy/MM/dd" /></th>
+						<th><fmt:formatDate value="${bean.createDate }" pattern="yyyy/MM/dd" /></th>
+					
+						<th><span class="label label-success">${bean.state }</span></th>
+						<th> <a href="">报名</a> </th>
+				 </tr>
+			</c:forEach>
+				
+			</tbody>
+			</table>
+        </div>
+      </section>
     </div>
     
 	<%@include file="./footer.jsp" %>
@@ -222,6 +220,7 @@
                   $('#envor-preload').hide();
       });
       /*
+
       Windows Phone 8 и Internet Explorer 10
 
       */

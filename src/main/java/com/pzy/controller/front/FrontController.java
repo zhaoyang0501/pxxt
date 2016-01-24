@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.pzy.entity.User;
 import com.pzy.service.UserService;
+import com.pzy.service.GradeService;
 /***
  * 后台首页，处理后台登录验证权限等操作
  * @author qq:263608237
@@ -22,9 +23,11 @@ public class FrontController {
 	
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private GradeService gradeService;
 	@RequestMapping("index")
 	public String index() {
-		return "admin/login";
+		return "index";
 	}
 	@RequestMapping("register")
 	public String register() {
@@ -53,6 +56,11 @@ public class FrontController {
 	@RequestMapping("about")
 	public String about() {
 		return "about";
+	}
+	@RequestMapping("grade")
+	public String grade(Model model) {
+		model.addAttribute("grades", gradeService.findAll());
+		return "grade";
 	}
 	@RequestMapping("dologin")
 	public String dologin(User user,HttpSession httpSession,Model model) {

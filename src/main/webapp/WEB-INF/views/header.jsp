@@ -82,13 +82,13 @@
                 <nav>
                   <ul>
                     <li>
-                      <a href="news">首页</a>
+                      <a href="index">首页</a>
                     </li>
                     <li>
                       <a href="plan">在线报名</a>
                     </li>
                       <li>
-                      <a href="plan">开班信息</a>
+                      <a href="grade">开班信息</a>
                     </li>
                     <li>
                       <a href="teacher">名师风采</a>
