@@ -81,9 +81,8 @@
                   <li ><i class="glyphicon glyphicon-arrow-right"></i> <a href="center">个人信息</a></li>
                   <li ><i class="glyphicon glyphicon-arrow-right"></i> <a href="mygrade">我参加的班级</a></li>
                    <li  ><i class="glyphicon glyphicon-arrow-right"></i> <a href="mywork">我的就业情况</a></li>
-                  <li class="active"><i class="glyphicon glyphicon-arrow-right"></i> <a href="myscore">我的成绩查询</a></li>
-                 <li><i class="glyphicon glyphicon-arrow-right"></i> <a href="myattence">我的考勤</a></li>
-                
+                  <li ><i class="glyphicon glyphicon-arrow-right"></i> <a href="myscore">我的成绩查询</a></li>
+                 <li  class="active"><i class="glyphicon glyphicon-arrow-right"></i> <a href="myattence">我的考勤</a></li>
                 </ul>
               </nav>
             </div>	
@@ -92,9 +91,9 @@
           <div class="row" id='fuckyou' style="margin-bottom: 30px;margin-top: 0px">
            <div class="col-lg-4"></div>
 			  <div class="col-lg-4">
-			  <form action="myscore"  method="post">
+			  <form action="myattence"  method="post">
 			    <div class="input-group">
-			      <input type="text" name='key' class="form-control" placeholder="课程名称">
+			      <input type="text" name='key' class="form-control" placeholder="yyyy-mm">
 			      <span class="input-group-btn">
 			        <button class="btn btn-default" type="submit">查询</button>
 			      </span>
@@ -106,26 +105,27 @@
 			<table class="table table-bordered">
 			<thead>
 				<tr>
-					   <th>课程</th>
-						<th>总分</th>
-						<th>得分</th>
-						<th>登记</th>
-						<th>更新时间</th>
+					   <th>日期</th>
+						<th>状态</th>
+						<th>登记日期</th>
 				 </tr>
 			</thead>
 			<tbody>
-			<c:forEach items="${scores }" var="bean">
+			<c:forEach items="${attences }" var="bean">
 				<tr>
-						<th>${bean.category.name }</th>
-						<th>${bean.maxscore }</th>
-						<th>${bean.score }</th>
-						<th><span class="label label-success">${bean.degree }</span></th>
+						<th><fmt:formatDate value="${bean.workdate }" pattern="yyyy/MM/dd" /></th>
+						<th>
+							<c:if test="${bean.state =='正常'}"><span class="label label-success">${bean.state }</span></c:if>
+							<c:if test="${bean.state !='正常'}"><span class="label label-danger">${bean.state }</span></c:if>
+							
+						</th>
 						<th>${bean.createDate }</th>
 				 </tr>
 			</c:forEach>
 				
 			</tbody>
 			</table>
+			<p>总共缺勤次数：1次</p>
             </div>
 		  </div>
         </div>

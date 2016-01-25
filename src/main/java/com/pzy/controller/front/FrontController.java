@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.pzy.entity.Grade;
 import com.pzy.entity.Report;
 import com.pzy.entity.User;
+import com.pzy.service.AttenceService;
 import com.pzy.service.GradeService;
 import com.pzy.service.ReportService;
 import com.pzy.service.ScoreService;
@@ -40,6 +41,8 @@ public class FrontController {
 	private WorkService workService;
 	@Autowired
 	private ScoreService scoreService;
+	@Autowired
+	private AttenceService attenceService;
 	@RequestMapping("index")
 	public String index() {
 		return "index";
@@ -66,6 +69,13 @@ public class FrontController {
 			model.addAttribute("scores",scoreService.findByCategoryName(key,(User)httpSession.getAttribute("user")));
 		}
 		return "myscore";
+	}
+	@RequestMapping("myattence")
+	public String myattence(Model model,String key,HttpSession httpSession) {
+		if(StringUtils.isNotBlank(key)){
+			model.addAttribute("attences",attenceService.findAll());
+		}
+		return "myattence";
 	}
 	
 	@RequestMapping("register")
