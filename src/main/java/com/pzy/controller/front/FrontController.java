@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,8 +15,10 @@ import com.pzy.entity.Report;
 import com.pzy.entity.User;
 import com.pzy.service.GradeService;
 import com.pzy.service.ReportService;
+import com.pzy.service.ScoreService;
 import com.pzy.service.TimetableService;
 import com.pzy.service.UserService;
+import com.pzy.service.WorkService;
 /***
  * 后台首页，处理后台登录验证权限等操作
  * @author qq:263608237
@@ -33,6 +36,10 @@ public class FrontController {
 	private TimetableService timetableService;
 	@Autowired
 	private ReportService reportService;
+	@Autowired
+	private WorkService workService;
+	@Autowired
+	private ScoreService scoreService;
 	@RequestMapping("index")
 	public String index() {
 		return "index";
@@ -42,7 +49,24 @@ public class FrontController {
 	public String center() {
 		return "center";
 	}
-	
+	@RequestMapping("mygrade")
+	public String mygrade(Model model,HttpSession httpSession) {
+		model.addAttribute("grades", gradeService.findAll());
+		model.addAttribute("reports", reportService.findByUser((User)httpSession.getAttribute("user")));
+		return "mygrade";
+	}
+	@RequestMapping("mywork")
+	public String mywork(Model model,HttpSession httpSession) {
+		model.addAttribute("work",workService.findByUser((User)httpSession.getAttribute("user")));
+		return "mywork";
+	}
+	@RequestMapping("myscore")
+	public String myscore(Model model,String key,HttpSession httpSession) {
+		if(StringUtils.isNotBlank(key)){
+			model.addAttribute("scores",scoreService.findByCategoryName(key,(User)httpSession.getAttribute("user")));
+		}
+		return "myscore";
+	}
 	
 	@RequestMapping("register")
 	public String register() {

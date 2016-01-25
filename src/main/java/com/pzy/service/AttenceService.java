@@ -16,46 +16,46 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
-import com.pzy.entity.Report;
 import com.pzy.entity.User;
-import com.pzy.repository.ReportRepository;
+import com.pzy.entity.Attence;
+import com.pzy.repository.AttenceRepository;
 /***
  * 
  * @author qq:263608237
  *
  */
 @Service
-public class ReportService {
+public class AttenceService {
      @Autowired
-     private ReportRepository reportRepository;
+     private AttenceRepository attenceRepository;
 
- 	public List<Report> findTop3() {
- 		return reportRepository.findAll(
+ 	public List<Attence> findTop3() {
+ 		return attenceRepository.findAll(
  				new PageRequest(0, 15, new Sort(Direction.DESC, "createDate")))
  				.getContent();
  	}
-     public List<Report> findAll() {
-         return (List<Report>) reportRepository.findAll(new Sort(Direction.DESC, "id"));
+     public List<Attence> findAll() {
+         return (List<Attence>) attenceRepository.findAll(new Sort(Direction.DESC, "id"));
      }
-     public Page<Report> findAll(final int pageNumber, final int pageSize,final String name){
+     public Page<Attence> findAll(final int pageNumber, final int pageSize,final String name){
          PageRequest pageRequest = new PageRequest(pageNumber - 1, pageSize, new Sort(Direction.DESC, "id"));
-         Specification<Report> spec = new Specification<Report>() {
-              public Predicate toPredicate(Root<Report> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+         Specification<Attence> spec = new Specification<Attence>() {
+              public Predicate toPredicate(Root<Attence> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
               Predicate predicate = cb.conjunction();
               if (name != null) {
-                   predicate.getExpressions().add(cb.like(root.get("title").as(String.class), "%"+name+"%"));
+                   predicate.getExpressions().add(cb.like(root.get("user").get("name").as(String.class), "%"+name+"%"));
               }
               return predicate;
               }
          };
-         Page<Report> result = (Page<Report>) reportRepository.findAll(spec, pageRequest);
+         Page<Attence> result = (Page<Attence>) attenceRepository.findAll(spec, pageRequest);
          return result;
      	}
      
-     public Page<Report> findAll(final int pageNumber, final int pageSize,final Integer type ){
+     public Page<Attence> findAll(final int pageNumber, final int pageSize,final Integer type ){
          PageRequest pageRequest = new PageRequest(pageNumber - 1, pageSize, new Sort(Direction.DESC, "id"));
-         Specification<Report> spec = new Specification<Report>() {
-              public Predicate toPredicate(Root<Report> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+         Specification<Attence> spec = new Specification<Attence>() {
+              public Predicate toPredicate(Root<Attence> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
               Predicate predicate = cb.conjunction();
               if (type != null) {
                   predicate.getExpressions().add(cb.equal(root.get("type").as(Integer.class),type));
@@ -63,19 +63,22 @@ public class ReportService {
               return predicate;
               }
          };
-         Page<Report> result = (Page<Report>) reportRepository.findAll(spec, pageRequest);
+         Page<Attence> result = (Page<Attence>) attenceRepository.findAll(spec, pageRequest);
          return result;
      	}
 		public void delete(Long id){
-			reportRepository.delete(id);
+			attenceRepository.delete(id);
 		}
-		public Report find(Long id){
-			  return reportRepository.findOne(id);
+		public Attence find(Long id){
+			  return attenceRepository.findOne(id);
 		}
-		public void save(Report report){
-			reportRepository.save(report);
+		public Attence findByUser(User user){
+			  List<Attence> lists=attenceRepository.findByUser(user);
+			  if(lists.size()==0) return null;
+			  else return
+				 lists.get(0);
 		}
-		public List<Report> findByUser(User	 user){
-			return reportRepository.findByUser(user);
+		public void save(Attence attence){
+			attenceRepository.save(attence);
 		}
 }

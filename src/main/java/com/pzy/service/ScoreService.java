@@ -17,6 +17,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import com.pzy.entity.Score;
+import com.pzy.entity.User;
 import com.pzy.repository.ScoreRepository;
 /***
  * 
@@ -73,5 +74,8 @@ public class ScoreService {
 		}
 		public void save(Score score){
 			scoreRepository.save(score);
+		}
+		public List<Score> findByCategoryName(String name,User user){
+			  return scoreRepository.findByCategoryNameAndUser(name,user);
 		}
 }

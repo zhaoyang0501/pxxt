@@ -73,27 +73,26 @@
            <div class="col-lg-3 col-md-3">
               	<nav class="envor-side-navi">
                 <ul>
-                  <li  class="active"><i class="glyphicon glyphicon-arrow-right"></i> <a href="center">个人信息</a></li>
+                  <li ><i class="glyphicon glyphicon-arrow-right"></i> <a href="center">个人信息</a></li>
                   <li ><i class="glyphicon glyphicon-arrow-right"></i> <a href="mygrade">我参加的班级</a></li>
-                   <li><i class="glyphicon glyphicon-arrow-right"></i> <a href="mywork">我的就业情况</a></li>
+                   <li  class="active"><i class="glyphicon glyphicon-arrow-right"></i> <a href="mywork">我的就业情况</a></li>
                   <li><i class="glyphicon glyphicon-arrow-right"></i> <a href="myscore">我的成绩查询</a></li>
-                  <li><i class="glyphicon glyphicon-arrow-right"></i> <a href="myscore">我的考勤</a></li>
                 
                 </ul>
               </nav>
             </div>	
             
           	<div class="col-lg-9 col-md-9">
-              <h3 style="margin-top: 0px;">我的档案</h3>
-              <form class="envor-f1" action="docreateplan" method="post">
-               <p><label for="drop-email">姓名:</label>${sessionScope.user.name }</p>
-                <p><label for="drop-name">用户名:</label>${sessionScope.user.username } </p>
-                 <p><label for="drop-name">电子邮箱:</label>${sessionScope.user.email} </p>
-                     <p><label for="drop-name">电话:</label>${sessionScope.user.tel} </p>
-                    <p><label for="drop-name">毕业学校:</label>${sessionScope.user.grade} </p>
-                      <p><label for="drop-name">住址:</label>${sessionScope.user.address} </p>
-                        <p><label for="drop-name">注册日期:</label><fmt:formatDate value="${sessionScope.user.createDate}" pattern="yyyy/MM/dd" /> </p>
-                </form>
+          	<c:if test="${work!=null }">
+          		<h3 style="margin-top: 0px;">我的就业</h3>
+               <p><label for="drop-email">就业单位:</label>${work.unit }</p>
+                <p><label for="drop-name">月薪:</label>${work.cash } </p>
+                 <p><label for="drop-name">工作日期:</label>${work.workdate} </p>
+                    <p><label for="drop-name">毕业学校:</label>${work.school} </p>
+          	</c:if>
+              <c:if test="${work==null }">
+              	<h3 style="margin-top: 0px;">暂无您的就业信息</h3>
+              	</c:if>
             <!--
 
             Contact Form end

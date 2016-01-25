@@ -16,6 +16,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
+import com.pzy.entity.User;
 import com.pzy.entity.Work;
 import com.pzy.repository.WorkRepository;
 /***
@@ -70,6 +71,12 @@ public class WorkService {
 		}
 		public Work find(Long id){
 			  return workRepository.findOne(id);
+		}
+		public Work findByUser(User user){
+			  List<Work> lists=workRepository.findByUser(user);
+			  if(lists.size()==0) return null;
+			  else return
+				 lists.get(0);
 		}
 		public void save(Work work){
 			workRepository.save(work);

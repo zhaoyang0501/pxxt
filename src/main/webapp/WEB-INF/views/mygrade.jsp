@@ -60,7 +60,7 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="envor-desktop-breadscrubs-inner">
-                <a href="index.html">首页</a><i class="fa fa-angle-double-right"></i>个人中心
+                <a href="index.html">首页</a><i class="fa fa-angle-double-right"></i>创建方案
               </div>
             </div>
           </div>
@@ -73,27 +73,40 @@
            <div class="col-lg-3 col-md-3">
               	<nav class="envor-side-navi">
                 <ul>
-                  <li  class="active"><i class="glyphicon glyphicon-arrow-right"></i> <a href="center">个人信息</a></li>
-                  <li ><i class="glyphicon glyphicon-arrow-right"></i> <a href="mygrade">我参加的班级</a></li>
+                  <li ><i class="glyphicon glyphicon-arrow-right"></i> <a href="center">个人信息</a></li>
+                  <li   class="active"><i class="glyphicon glyphicon-arrow-right"></i> <a href="mygrade">我参加的班级</a></li>
                    <li><i class="glyphicon glyphicon-arrow-right"></i> <a href="mywork">我的就业情况</a></li>
                   <li><i class="glyphicon glyphicon-arrow-right"></i> <a href="myscore">我的成绩查询</a></li>
-                  <li><i class="glyphicon glyphicon-arrow-right"></i> <a href="myscore">我的考勤</a></li>
-                
                 </ul>
               </nav>
             </div>	
             
           	<div class="col-lg-9 col-md-9">
-              <h3 style="margin-top: 0px;">我的档案</h3>
-              <form class="envor-f1" action="docreateplan" method="post">
-               <p><label for="drop-email">姓名:</label>${sessionScope.user.name }</p>
-                <p><label for="drop-name">用户名:</label>${sessionScope.user.username } </p>
-                 <p><label for="drop-name">电子邮箱:</label>${sessionScope.user.email} </p>
-                     <p><label for="drop-name">电话:</label>${sessionScope.user.tel} </p>
-                    <p><label for="drop-name">毕业学校:</label>${sessionScope.user.grade} </p>
-                      <p><label for="drop-name">住址:</label>${sessionScope.user.address} </p>
-                        <p><label for="drop-name">注册日期:</label><fmt:formatDate value="${sessionScope.user.createDate}" pattern="yyyy/MM/dd" /> </p>
-                </form>
+              <h3 style="margin-top: 0px;">我参与的班级</h3>
+              <table class="table table-bordered">
+			<thead>
+				<tr>
+						<th>班次</th>
+						<th>开班时间</th>
+						<th>状态</th>
+						<th>加入日期</th>
+						<th>付款方式</th>
+				 </tr>
+			</thead>
+			<tbody>
+			<c:forEach items="${reports }" var="bean">
+				<tr>
+						<th><a href="viewgrade?id=${bean.grade.id }">${bean.grade.name }</a> <img src="http://www.bjsxt.com/statics/images/bjsxt/kb_new.gif" style="opacity: 1;"></th>
+						<th> <fmt:formatDate value="${bean.grade.begin }" pattern="yyyy/MM/dd" />至<fmt:formatDate value="${bean.grade.end }" pattern="yyyy/MM/dd" /> </th>
+					
+						<th><span class="label label-success">${bean.grade.state }</span></th>
+						<th><fmt:formatDate value="${bean.createDate }" pattern="yyyy/MM/dd" /></th>
+						<th><span class="label label-success">${bean.pay }</span></th>
+				 </tr>
+			</c:forEach>
+				
+			</tbody>
+			</table>
             <!--
 
             Contact Form end
