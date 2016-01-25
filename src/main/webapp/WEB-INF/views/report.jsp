@@ -14,7 +14,7 @@
     <meta name="author" content="Suono Libero ( @rivathemes.com )">
     <link rel="shortcut icon" href="favicon.ico">
 
-    <title></title>
+    <title>Envor HTML5/CSS3 Template</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -52,6 +52,7 @@
     <!--[if lt IE 7]>
     <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
     <![endif]-->
+   
    	<%@include file="./header.jsp" %>
    
    <div class="envor-content" style="padding-top: 0px;">
@@ -60,7 +61,7 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="envor-desktop-breadscrubs-inner">
-                <a href="index.html">首页</a><i class="fa fa-angle-double-right"></i>创建方案
+                <a href="index.html">首页</a><i class="fa fa-angle-double-right"></i>用户报名
               </div>
             </div>
           </div>
@@ -69,42 +70,102 @@
       
       <section class="envor-section">
         <div class="container">
+         <c:if test="${tip!=null }">
+      <div class="envor-msg envor-msg-info">
+                <header>
+                	  提示!
+                  <i class="fa fa-times"></i>
+                </header>
+                <p>${tip }</p>
+          </div>
+      </c:if>
           <div class="row" style="margin-bottom: 30px">
-           <div class="col-lg-3 col-md-3">
-              	<nav class="envor-side-navi">
-                <ul>
-                  <li  class="active"><i class="glyphicon glyphicon-arrow-right"></i> <a href="center">个人信息</a></li>
-                  <li ><i class="glyphicon glyphicon-arrow-right"></i> <a href="plan">我参加的班级</a></li>
-                   <li><i class="glyphicon glyphicon-arrow-right"></i> <a href="createplan">我的就业情况</a></li>
-                  <li><i class="glyphicon glyphicon-arrow-right"></i> <a href="apply">我的成绩查询</a></li>
-                
-                </ul>
-              </nav>
-            </div>	
-            
-          	<div class="col-lg-9 col-md-9">
-              <h3 style="margin-top: 0px;">我的档案</h3>
-              <form class="envor-f1" action="docreateplan" method="post">
-               <p><label for="drop-email">姓名:</label>${sessionScope.user.name }</p>
-                <p><label for="drop-name">用户名:</label>${sessionScope.user.username } </p>
-                 <p><label for="drop-name">电子邮箱:</label>${sessionScope.user.email} </p>
-                    <p><label for="drop-name">毕业学校:</label>${sessionScope.user.grade} </p>
-                      <p><label for="drop-name">住址:</label>${sessionScope.user.address} </p>
-                        <p><label for="drop-name">注册日期:</label><fmt:formatDate value="${sessionScope.user.createDate}" pattern="yyyy/MM/dd" /> </p>
+           <div class="col-lg-12 col-md-12">
+             
+
+              <div class="riva-toggle-tab" style="display: block;">
+                <h2><strong>报名</strong> </h2>
+                <form class="envor-f1" action="doreport" method="post">
+                  <p><label for="rt1-first-name">班级</label>
+                  	<select name='grade.id'>
+                  	<c:forEach items="${grades }" var="bean">
+                  		<option value="${bean.id}">${bean.name }</option>
+                  	</c:forEach>
+                  	</select>
+                  </p>
+                    <p><label for="rt1-phone">付款方式</label>
+                    <select name='pay'>
+                    <option value=""></option>
+                    	<option value="现金">现金</option>
+                    	<option value="转账">转账</option>
+                    	<option value="信用卡">信用卡</option>
+                    	<option value="贷款">贷款</option>
+                    </select>
+                    </p>
+                  <p><label for="rt1-email">电话</label><input type="text"  name='email'></p>
+                  <p><label for="rt1-country">备注</label>
+                  	<textarea rows="6" cols="" name='remark'></textarea>
+                  </p>
+                  <p><input type="submit" value="提交" class="envor-btn envor-btn-normal envor-btn-primary"></p>
                 </form>
+              </div>
+              <!--
+
+              Voice It Form tab
+
+              //-->
+              <div class="riva-toggle-tab" style="display: none;">
+                <h2><strong>Voice It</strong> Form</h2>
+                <form class="envor-f1">
+                  <p><label for="rt3-areyou">Are you?*</label>
+                    <select name="rt3-areyou" id="rt3-areyou">
+                      <option>A Business Partner of ENVOR</option>
+                      <option>Not a Business Partner of ENVOR</option>
+                    </select>
+                  </p>
+                  <p><label for="rt3-reg">Would you like to register a*</label>
+                    <select name="rt3-reg" id="rt3-reg">
+                      <option>Select</option>
+                      <option>Complaint</option>
+                      <option>Compliment</option>
+                      <option>Suggestion</option>
+                    </select>
+                  </p>
+                  <p><label for="rt3-company">Company*</label><input type="text" id="rt3-company"></p>
+                  <p><label for="rt3-first-name">Full name*</label><input type="text" id="rt3-first-name"></p>
+                  <p><label for="rt3-job-title">Job title*</label>
+                    <select name="rt3-job-title" id="rt3-job-title">
+                      <option>Select Position</option>
+                      <option>CEO</option>
+                      <option>Director</option>
+                      <option>Executive Officer</option>
+                      <option>Executive Director</option>
+                      <option>Manager</option>
+                      <option>Senior Manager</option>
+                      <option>Others</option>
+                    </select>
+                  </p>
+                  <p><label for="rt3-phone">Phone</label><input type="text" id="rt3-phone"></p>
+                  <p><label for="rt3-mobile">Mobile</label><input type="text" id="rt3-mobile"></p>
+                  <p><label for="rt3-email">Email Address*</label><input type="text" id="rt3-email"></p>
+                  <p><label for="rt3-details">Please provide us with a brief of your feedback*</label><textarea id="rt3-details"></textarea></p>
+                  <p><label for="rt3-attachment">Attachment*</label><input type="file" id="rt3-attachment"></p>
+                  <p><input type="submit" value="立即注册" class="envor-btn envor-btn-normal envor-btn-primary"></p>
+                </form>
+              </div>
             <!--
 
-            Contact Form end
+            Map & Form end
 
             //-->
             </div>
-		  </div>
+			</div>
+			
         </div>
       </section>
     </div>
     
 	<%@include file="./footer.jsp" %>
-
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -211,7 +272,6 @@
       });
       /*
 
-     
       Windows Phone 8 и Internet Explorer 10
 
       */

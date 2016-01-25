@@ -85,7 +85,7 @@
                       <a href="index">首页</a>
                     </li>
                     <li>
-                      <a href="plan">在线报名</a>
+                      <a href="report">在线报名</a>
                     </li>
                       <li>
                       <a href="grade">开班信息</a>

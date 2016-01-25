@@ -15,7 +15,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
-
+import com.pzy.entity.Grade;
 import com.pzy.entity.Timetable;
 import com.pzy.repository.TimetableRepository;
 /***
@@ -28,10 +28,8 @@ public class TimetableService {
      @Autowired
      private TimetableRepository timetableRepository;
 
- 	public List<Timetable> findTop3() {
- 		return timetableRepository.findAll(
- 				new PageRequest(0, 15, new Sort(Direction.DESC, "createDate")))
- 				.getContent();
+ 	public List<Timetable> findByGradeAndWeek(Grade grade,Integer week) {
+ 		return timetableRepository.findByGradeAndWeek(grade, week);
  	}
      public List<Timetable> findAll() {
          return (List<Timetable>) timetableRepository.findAll(new Sort(Direction.DESC, "id"));

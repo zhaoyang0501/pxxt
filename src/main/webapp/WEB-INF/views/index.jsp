@@ -102,7 +102,7 @@
               专业化、高质量的教学体系使 “学员发愁的不是找工作，而是如何挑工作。 ” 对于每个参加 培训的学员，毕业都能找到一份合适的工作，看学员学的程度如何，基础学的很好的学员毕业都拿到了很满意的工作。 我们在几年的时间里已经培养了近千名学员，这些学员广泛就业于 IBM 、惠普、新浪、联想、NEC 等国内外知名企业，从事 JAVA 软件开发工作，他们中的很多人现在都已经成为项目经理甚至是技术总监。
               </p>
               <p>
-                <a href="" class="envor-btn envor-btn-primary envor-btn-normal"><i class="glyphicon glyphicon-check"></i> 立即报名!</a>
+                <a href="report" class="envor-btn envor-btn-primary envor-btn-normal"><i class="glyphicon glyphicon-check"></i> 立即报名!</a>
               </p>
             </div>
           </div>
