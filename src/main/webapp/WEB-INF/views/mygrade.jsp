@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 <!DOCTYPE html>
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -84,7 +84,11 @@
             </div>	
             
           	<div class="col-lg-9 col-md-9">
-              <h3 style="margin-top: 0px;">我参与的班级</h3>
+          	<c:if test="${fn:length(reports)==0}">
+              	<h3 style="margin-top: 0px;">暂无您的报班信息</h3>
+             </c:if>
+             <c:if test="${fn:length(reports)!=0}">
+              	 <h3 style="margin-top: 0px;">我参与的班级</h3>
               <table class="table table-bordered">
 			<thead>
 				<tr>
@@ -109,6 +113,8 @@
 				
 			</tbody>
 			</table>
+             </c:if>
+             
             <!--
 
             Contact Form end

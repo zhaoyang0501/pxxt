@@ -12,7 +12,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-
+/***
+ *  *对应数据库-- 课表实体
+ * @author Administrator
+ *
+ */
 @Entity
 @Table(name = "t_category")
 public class Category {

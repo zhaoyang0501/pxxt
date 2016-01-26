@@ -24,6 +24,7 @@ import com.pzy.entity.Work;
 import com.pzy.service.UserService;
 import com.pzy.service.WorkService;
 /***
+ * 就业情况管理
  * @author panchaoyang
  *qq 263608237
  */

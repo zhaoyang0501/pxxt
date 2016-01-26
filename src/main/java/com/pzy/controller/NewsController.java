@@ -14,9 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.pzy.entity.News;
-import com.pzy.entity.User;
 import com.pzy.service.NewsService;
-/***
+/***发布公告到首页
  * @author panchaoyang
  * qq:263608237
  */

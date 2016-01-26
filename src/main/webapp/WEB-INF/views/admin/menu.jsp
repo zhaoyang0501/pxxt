@@ -35,9 +35,12 @@
 					<li><a href="${pageContext.request.contextPath}/admin/category/index"><i class="icon-pencil"></i>课程管理</a></li>	
 					<li><a href="${pageContext.request.contextPath}/admin/grade/index"><i class="icon-pencil"></i>培训计划管理</a></li>	
 					<li><a href="${pageContext.request.contextPath}/admin/timetable/index"><i class="icon-pencil"></i>课表管理</a></li>
+					<li><a href="${pageContext.request.contextPath}/admin/attence/index"><i class="icon-pencil"></i>考勤管理</a></li>
+		
 				</c:if>
 				<c:if test="${sessionScope.adminuser.username!='admin'}">
-			
+					<li><a href="${pageContext.request.contextPath}/admin/work/index"><i class="icon-pencil"></i>就业管理</a></li>
+				
 				</c:if>
 				</ul>
 			</div>

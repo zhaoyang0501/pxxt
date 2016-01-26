@@ -25,7 +25,7 @@
 					<div class="switch-board gray">
 						<ul class="clearfix switch-item">
 							<li><span class="notify-tip">${usernum }</span><a href="javascript:void(0);" class="brown"><i class="icon-user"></i><span>会员数</span></a></li>
-							<li><span class="notify-tip">${num1 }</span><a href="javascript:void(0);" class=" blue-violate"><i class="icon-lightbulb"></i><span>订单总数</span></a></li>
+							<li><span class="notify-tip">${num1 }</span><a href="javascript:void(0);" class=" blue-violate"><i class="icon-lightbulb"></i><span>教师数</span></a></li>
 						</ul>
 					</div>
 				</div>

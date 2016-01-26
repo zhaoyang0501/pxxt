@@ -49,7 +49,6 @@
 											<th >email</th>
 											<th >职称</th>
 											<th >工作年限</th>
-											<th >工作经历</th>
 											<th >操作</th>
 										</tr>
 									</thead>

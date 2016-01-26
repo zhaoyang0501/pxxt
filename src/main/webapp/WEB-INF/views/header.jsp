@@ -32,7 +32,7 @@
               <p class="contacts"><i class="fa fa-envelope"></i> <a href="">263608237@qq.com</a></p>
               <ul class="social-btns">
                   <c:if test="${sessionScope.user!=null}">
-                    <li style=" width: 250px;"><a href="">欢迎您：${sessionScope.user.name }</a></li>
+                    <li style=" width: 250px;"><a href="center">欢迎您：${sessionScope.user.name }</a></li>
                	 	<li><a href="loginout"><span class=" glyphicon glyphicon-off" aria-hidden="true"></span></a></li>
                   </c:if>
                 <c:if test="${sessionScope.user==null}">

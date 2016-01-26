@@ -118,6 +118,10 @@ jQuery.work = {
     			success : function(json) {
     				if(json.state=='success'){
     					$("#name").val(json.object.name);
+    					$("#school").val(json.object.school);
+    					$("#unit").val(json.object.unit);
+    					$("#cash").val(json.object.cash);
+    					$("#workdate").val(json.object.workdate);
     					$("#remark").val(json.object.remark);
     				}else{
     					noty({"text":""+ json.msg +"","layout":"top","type":"warning"});

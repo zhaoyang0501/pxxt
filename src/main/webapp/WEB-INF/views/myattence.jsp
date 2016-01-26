@@ -125,7 +125,7 @@
 				
 			</tbody>
 			</table>
-			<p>总共缺勤次数：1次</p>
+			<p>总共缺勤次数：${count }次</p>
             </div>
 		  </div>
         </div>

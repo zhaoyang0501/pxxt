@@ -12,7 +12,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-
+/***
+ * 对应数据库 班级信息
+ * @author Administrator
+ *
+ */
 @Entity
 @Table(name = "t_grade")
 public class Grade {

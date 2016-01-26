@@ -9,7 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
+/***
+ * 课表
+ * @author Administrator
+ *
+ */
 @Entity
 @Table(name = "t_timetable")
 public class Timetable {

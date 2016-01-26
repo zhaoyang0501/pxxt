@@ -15,7 +15,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-
+/**
+ * 就业情况表
+ * @author Administrator
+ *
+ */
 @Entity
 @Table(name = "t_work")
 public class Work {

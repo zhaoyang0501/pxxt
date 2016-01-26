@@ -1,6 +1,7 @@
 
 package com.pzy.service;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -36,6 +37,18 @@ public class AttenceService {
  	}
      public List<Attence> findAll() {
          return (List<Attence>) attenceRepository.findAll(new Sort(Direction.DESC, "id"));
+     }
+     public List<Attence> findAll(final User user,final Date begin,final Date end) {
+         Specification<Attence> spec = new Specification<Attence>() {
+              public Predicate toPredicate(Root<Attence> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+              Predicate predicate = cb.conjunction();
+              predicate.getExpressions().add(cb.equal(root.get("user").as(User.class), user));
+              predicate.getExpressions().add(cb.greaterThanOrEqualTo(root.get("workdate").as(Date.class), begin));
+              predicate.getExpressions().add(cb.lessThanOrEqualTo(root.get("workdate").as(Date.class), end));
+              return predicate;
+              }
+         };
+         return attenceRepository.findAll(spec);
      }
      public Page<Attence> findAll(final int pageNumber, final int pageSize,final String name){
          PageRequest pageRequest = new PageRequest(pageNumber - 1, pageSize, new Sort(Direction.DESC, "id"));

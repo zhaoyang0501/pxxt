@@ -8,7 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+/***
+ * 对应数据库 公告
+ * @author Administrator
+ *
+ */
 @Entity
 @Table(name = "t_news")
 public class News {

@@ -15,7 +15,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-
+/***
+ *对应数据库-- 考勤表
+ * @author Administrator
+ *
+ */
 @Entity
 @Table(name = "t_attence")
 public class Attence {

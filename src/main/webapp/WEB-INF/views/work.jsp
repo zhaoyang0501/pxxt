@@ -66,7 +66,7 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="envor-desktop-breadscrubs-inner">
-                <a href="index.html">首页</a><i class="fa fa-angle-double-right"></i>教师风采
+                <a href="index.html">首页</a><i class="fa fa-angle-double-right"></i>就业情况
               </div>
             </div>
           </div>
@@ -83,90 +83,27 @@
                     Project Item
 
                     //-->
-                    <article class="envor-project envor-padding-bottom-30 envor-padding-left-30 javascript html envor-sorting-item envor-listing-item" style="width: 234px;">
+                    
+                    <c:forEach items="${works }" var="bean">
+                      <article class="envor-project envor-padding-bottom-30 envor-padding-left-30 javascript html envor-sorting-item envor-listing-item" style="width: 234px;">
                       <div class="envor-project-inner">
                         <figure><a href=""><img src="img/student.png" alt=""></a><figcaption style="display: none;"><a href="img/img1.png" title="Morbi sagittis lacinia" class="colorbox cboxElement"><i class="fa fa-plus" style="top: 0px;"></i></a></figcaption></figure>
                         <div class="envor-project-details">
-                           <span>月薪：8000</span><br>
-                           <span>院校：河北大学</span><br>
-                          <span>专业：计算机科学</span><br>
-                           <span>时间：2015-07-02</span><br>
+                          <span>学生：${bean.user.name }</span><br>
+                           <span>月薪：${bean.cash }</span><br>
+                           <span>单位：${bean.unit }</span><br>
+                           <span>院校：${bean.school }</span><br>
+                           <span>时间：	<th><fmt:formatDate value="${bean.workdate }" pattern="yyyy/MM/dd" /></th></span><br>
+	                       <hr>
+	                        <p >
+	                  		企业评价：     ${bean.remark }
+	                     	 </p>
                         </div>
                       </div>
                     </article>
+                    </c:forEach>
+                    
                   
-                   <article class="envor-project envor-padding-bottom-30 envor-padding-left-30 javascript html envor-sorting-item envor-listing-item" style="width: 234px;">
-                      <div class="envor-project-inner">
-                        <figure><a href=""><img src="img/student.png" alt=""></a><figcaption style="display: none;"><a href="img/img1.png" title="Morbi sagittis lacinia" class="colorbox cboxElement"><i class="fa fa-plus" style="top: 0px;"></i></a></figcaption></figure>
-                        <div class="envor-project-details">
-                           <span>月薪：8000</span><br>
-                           <span>院校：河北大学</span><br>
-                          <span>专业：计算机科学</span><br>
-                           <span>时间：2015-07-02</span><br>
-                        </div>
-                      </div>
-                    </article>
-                    
-                     <article class="envor-project envor-padding-bottom-30 envor-padding-left-30 javascript html envor-sorting-item envor-listing-item" style="width: 234px;">
-                      <div class="envor-project-inner">
-                        <figure><a href=""><img src="img/student.png" alt=""></a><figcaption style="display: none;"><a href="img/img1.png" title="Morbi sagittis lacinia" class="colorbox cboxElement"><i class="fa fa-plus" style="top: 0px;"></i></a></figcaption></figure>
-                        <div class="envor-project-details">
-                           <span>月薪：8000</span><br>
-                           <span>院校：河北大学</span><br>
-                          <span>专业：计算机科学</span><br>
-                           <span>时间：2015-07-02</span><br>
-                        </div>
-                      </div>
-                    </article>
-                    
-                     <article class="envor-project envor-padding-bottom-30 envor-padding-left-30 javascript html envor-sorting-item envor-listing-item" style="width: 234px;">
-                      <div class="envor-project-inner">
-                        <figure><a href=""><img src="img/student.png" alt=""></a><figcaption style="display: none;"><a href="img/img1.png" title="Morbi sagittis lacinia" class="colorbox cboxElement"><i class="fa fa-plus" style="top: 0px;"></i></a></figcaption></figure>
-                        <div class="envor-project-details">
-                           <span>月薪：8000</span><br>
-                           <span>院校：河北大学</span><br>
-                          <span>专业：计算机科学</span><br>
-                           <span>时间：2015-07-02</span><br>
-                        </div>
-                      </div>
-                    </article>
-                    
-                     <article class="envor-project envor-padding-bottom-30 envor-padding-left-30 javascript html envor-sorting-item envor-listing-item" style="width: 234px;">
-                      <div class="envor-project-inner">
-                        <figure><a href=""><img src="img/student.png" alt=""></a><figcaption style="display: none;"><a href="img/img1.png" title="Morbi sagittis lacinia" class="colorbox cboxElement"><i class="fa fa-plus" style="top: 0px;"></i></a></figcaption></figure>
-                        <div class="envor-project-details">
-                           <span>月薪：8000</span><br>
-                           <span>院校：河北大学</span><br>
-                          <span>专业：计算机科学</span><br>
-                           <span>时间：2015-07-02</span><br>
-                        </div>
-                      </div>
-                    </article>
-                    
-                    
-                     <article class="envor-project envor-padding-bottom-30 envor-padding-left-30 javascript html envor-sorting-item envor-listing-item" style="width: 234px;">
-                      <div class="envor-project-inner">
-                        <figure><a href=""><img src="img/student.png" alt=""></a><figcaption style="display: none;"><a href="img/img1.png" title="Morbi sagittis lacinia" class="colorbox cboxElement"><i class="fa fa-plus" style="top: 0px;"></i></a></figcaption></figure>
-                        <div class="envor-project-details">
-                           <span>月薪：8000</span><br>
-                           <span>院校：河北大学</span><br>
-                          <span>专业：计算机科学</span><br>
-                           <span>时间：2015-07-02</span><br>
-                        </div>
-                      </div>
-                    </article>
-                    
-                     <article class="envor-project envor-padding-bottom-30 envor-padding-left-30 javascript html envor-sorting-item envor-listing-item" style="width: 234px;">
-                      <div class="envor-project-inner">
-                        <figure><a href=""><img src="img/student.png" alt=""></a><figcaption style="display: none;"><a href="img/img1.png" title="Morbi sagittis lacinia" class="colorbox cboxElement"><i class="fa fa-plus" style="top: 0px;"></i></a></figcaption></figure>
-                        <div class="envor-project-details">
-                           <span>月薪：8000</span><br>
-                           <span>院校：河北大学</span><br>
-                          <span>专业：计算机科学</span><br>
-                           <span>时间：2015-07-02</span><br>
-                        </div>
-                      </div>
-                    </article>
                   </div>
               </div>
             

@@ -41,7 +41,7 @@ public class TeacherService {
               public Predicate toPredicate(Root<Teacher> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
               Predicate predicate = cb.conjunction();
               if (name != null) {
-                   predicate.getExpressions().add(cb.like(root.get("title").as(String.class), "%"+name+"%"));
+                   predicate.getExpressions().add(cb.like(root.get("name").as(String.class), "%"+name+"%"));
               }
               return predicate;
               }

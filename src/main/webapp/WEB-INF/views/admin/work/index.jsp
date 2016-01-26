@@ -108,7 +108,7 @@
 								<label for="title" class="control-label">工作时间：</label>
 								<div class="controls">
 									<div class="input-append date">
-									 <input name="workdate" style="width:120px;" type="text" value="" readonly="readonly">
+									 <input id='workdate' name="workdate" style="width:120px;" type="text" value="" readonly="readonly">
 									 <span class="add-on"><i class="icon-th"></i></span>
 								</div>
 								</div>
@@ -123,6 +123,13 @@
 								<label for="title" class="control-label">毕业学校：</label>
 								<div class="controls">
 									<input type="text" name='school' id="school" placeholder="">
+								</div>
+							</div>
+								
+							<div class="control-group">
+								<label for="title" class="control-label">就业反馈：</label>
+								<div class="controls">
+								<textarea rows="5" cols="" name='remark'></textarea>
 								</div>
 							</div>
 							

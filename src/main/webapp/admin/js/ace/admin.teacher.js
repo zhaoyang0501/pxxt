@@ -34,7 +34,7 @@ jQuery.teacher = {
 						var name = $("#_name").val();
 						if (!!name) {
 							aoData.push({
-								"name" : "name",
+								"name" : "teachername",
 								"value" : name
 							});
 						}
@@ -61,13 +61,11 @@ jQuery.teacher = {
 					}, {
 						"mDataProp" : "year"
 					},{
-						"mDataProp" : "work"
-					},{
 						"mDataProp" : ""
 					}],
 					"aoColumnDefs" : [
 						{
-							'aTargets' : [7],
+							'aTargets' : [6],
 							'fnRender' : function(oObj, sVal) {
 								return" <button class=\"btn2 btn-info\" onclick=\"$.teacher.showEdit("+oObj.aData.id+")\"><i class=\"icon-edit\"></i> 修改</button>  <button class=\"btn2 btn-info\" onclick=\"$.teacher.deleteUser("+oObj.aData.id+")\"><i class=\"icon-trash\"></i> 删除</button>";
 							}

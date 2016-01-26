@@ -19,6 +19,7 @@ import com.pzy.service.CategoryService;
 import com.pzy.service.ScoreService;
 import com.pzy.service.UserService;
 /***
+ * 成绩管理
  * @author panchaoyang
  *qq 263608237
  */

@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.pzy.entity.Category;
 import com.pzy.service.CategoryService;
-/***
+/***课程管理
  * @author panchaoyang
  *qq 263608237
  */

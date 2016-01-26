@@ -1,5 +1,4 @@
 package com.pzy.controller;
-import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -27,6 +26,7 @@ import com.pzy.service.GradeService;
 import com.pzy.service.TeacherService;
 import com.pzy.service.TimetableService;
 /***
+ * 课表管理
  * @author panchaoyang
  *qq 263608237
  */

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.pzy.entity.News;
 import com.pzy.entity.User;
 import com.pzy.service.NewsService;
+import com.pzy.service.TeacherService;
 import com.pzy.service.UserService;
 /***
  * 后台首页，处理后台登录验证权限等操作
@@ -26,7 +27,8 @@ public class IndexController {
 	private UserService userService;
 	@Autowired
 	private NewsService newsService;
-	
+	@Autowired
+	private TeacherService teacherService;
 	@RequestMapping("center/index")
 	public String center() {
 		return "admin/center/index";
@@ -85,8 +87,8 @@ public class IndexController {
 		User user=userService.login(userName, password);
 		List<News> list=newsService.findAll();
 		model.addAttribute("usernum",userService.findAll().size());
-		model.addAttribute("num1",100);
-    	if("admin".equals(userName)&&"123456qwe".equals(password)){
+		model.addAttribute("num1",teacherService.findAll().size());
+    	if("admin".equals(userName)&&"123456".equals(password)){
     		User admin=new User();  
     		admin.setUsername("admin");
     		admin.setPassword("123456");
@@ -97,7 +99,17 @@ public class IndexController {
     		httpSession.setAttribute("adminuser", admin);
     		return "admin/index";
     	}
-		
+    	if("work".equals(userName)&&"123456qwe".equals(password)){
+    		User admin=new User();  
+    		admin.setUsername("work");
+    		admin.setPassword("123456");
+    		admin.setName("企业账号");
+    		
+    		
+    		model.addAttribute("news",list.size()==0?new News():list.get(0));
+    		httpSession.setAttribute("adminuser", admin);
+    		return "admin/index";
+    	}
     	else if(user!=null){
     		httpSession.setAttribute("adminuser", user);
     		return "admin/index";

@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 /***
- *
+ *学生表
  */
 @Entity
 @Table(name = "t_user")

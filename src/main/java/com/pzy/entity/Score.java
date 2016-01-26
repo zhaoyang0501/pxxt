@@ -13,7 +13,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
+/***
+ * 成绩表
+ * @author Administrator
+ *
+ */
 @Entity
 @Table(name = "t_score")
 public class Score {

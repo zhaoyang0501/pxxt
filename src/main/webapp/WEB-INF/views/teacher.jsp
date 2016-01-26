@@ -76,19 +76,21 @@
       <section class="envor-section">
         <div class="container">
           <div class="row" style="margin-bottom: 30px">
-            <div class="col-lg-3">
+          
+          <c:forEach items="${teachers }" var="bean">
+           <div class="col-lg-3">
             <div class="envor-team-1 envor-padding-left-10" >
                   <div class="envor-team-1-inner">
                     <header>
                       <figure><img src="img/teacher_male.png" alt=""></figure>
                       <div class="name">
-                        <small>王老师</small>
-                        <p>高级讲师</p>
+                        <small>${bean.name }(${bean.year} )</small>
+                        <p>${bean.level }</p>
                       </div>
                     </header>
                     <div class="envor-team-1-details">
                       <p class="role">工作经历</p>
-                      <p>Mauris tincidunt fringilla erat at dictum. Morbi justo lacus, mollis sit amet sodales quis, mattis ut dui. Fusce porttitor rhoncus enim.</p>
+                      <p>${bean.work }</p>
                       <p class="links">
                         <a href=""><i class="fa fa-facebook"></i></a>
                         <a href=""><i class="fa fa-twitter"></i></a>
@@ -99,132 +101,9 @@
                   </div>
                 </div>
             </div>
+          </c:forEach>
+           
             
-            
-             <div class="col-lg-3">
-            <div class="envor-team-1 envor-padding-left-10" >
-                  <div class="envor-team-1-inner">
-                    <header>
-                      <figure><img src="img/teacher_male.png" alt=""></figure>
-                      <div class="name">
-                        <small>王老师</small>
-                        <p>高级讲师</p>
-                      </div>
-                    </header>
-                    <div class="envor-team-1-details">
-                      <p class="role">工作经历</p>
-                      <p>Mauris tincidunt fringilla erat at dictum. Morbi justo lacus, mollis sit amet sodales quis, mattis ut dui. Fusce porttitor rhoncus enim.</p>
-                      <p class="links">
-                        <a href=""><i class="fa fa-facebook"></i></a>
-                        <a href=""><i class="fa fa-twitter"></i></a>
-                        <a href=""><i class="fa fa-linkedin"></i></a>
-                        <a href=""><i class="fa fa-envelope"></i></a>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-            </div>
-            
-            
-              <div class="col-lg-3">
-            <div class="envor-team-1 envor-padding-left-10" >
-                  <div class="envor-team-1-inner">
-                    <header>
-                      <figure><img src="img/teacher_male.png" alt=""></figure>
-                      <div class="name">
-                        <small>王老师</small>
-                        <p>高级讲师</p>
-                      </div>
-                    </header>
-                    <div class="envor-team-1-details">
-                      <p class="role">工作经历</p>
-                      <p>Mauris tincidunt fringilla erat at dictum. Morbi justo lacus, mollis sit amet sodales quis, mattis ut dui. Fusce porttitor rhoncus enim.</p>
-                      <p class="links">
-                        <a href=""><i class="fa fa-facebook"></i></a>
-                        <a href=""><i class="fa fa-twitter"></i></a>
-                        <a href=""><i class="fa fa-linkedin"></i></a>
-                        <a href=""><i class="fa fa-envelope"></i></a>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-            </div>
-            
-            
-            
-              <div class="col-lg-3">
-            <div class="envor-team-1 envor-padding-left-10" >
-                  <div class="envor-team-1-inner">
-                    <header>
-                      <figure><img src="img/teacher_male.png" alt=""></figure>
-                      <div class="name">
-                        <small>王老师</small>
-                        <p>高级讲师</p>
-                      </div>
-                    </header>
-                    <div class="envor-team-1-details">
-                      <p class="role">工作经历</p>
-                      <p>Mauris tincidunt fringilla erat at dictum. Morbi justo lacus, mollis sit amet sodales quis, mattis ut dui. Fusce porttitor rhoncus enim.</p>
-                      <p class="links">
-                        <a href=""><i class="fa fa-facebook"></i></a>
-                        <a href=""><i class="fa fa-twitter"></i></a>
-                        <a href=""><i class="fa fa-linkedin"></i></a>
-                        <a href=""><i class="fa fa-envelope"></i></a>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-            </div>
-            
-            
-              <div class="col-lg-3">
-            <div class="envor-team-1 envor-padding-left-10" >
-                  <div class="envor-team-1-inner">
-                    <header>
-                      <figure><img src="img/teacher_male.png" alt=""></figure>
-                      <div class="name">
-                        <small>王老师</small>
-                        <p>高级讲师</p>
-                      </div>
-                    </header>
-                    <div class="envor-team-1-details">
-                      <p class="role">工作经历</p>
-                      <p>Mauris tincidunt fringilla erat at dictum. Morbi justo lacus, mollis sit amet sodales quis, mattis ut dui. Fusce porttitor rhoncus enim.</p>
-                      <p class="links">
-                        <a href=""><i class="fa fa-facebook"></i></a>
-                        <a href=""><i class="fa fa-twitter"></i></a>
-                        <a href=""><i class="fa fa-linkedin"></i></a>
-                        <a href=""><i class="fa fa-envelope"></i></a>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-            </div>
-            
-            
-              <div class="col-lg-3">
-            <div class="envor-team-1 envor-padding-left-10" >
-                  <div class="envor-team-1-inner">
-                    <header>
-                      <figure><img src="img/teacher_male.png" alt=""></figure>
-                      <div class="name">
-                        <small>王老师</small>
-                        <p>高级讲师</p>
-                      </div>
-                    </header>
-                    <div class="envor-team-1-details">
-                      <p class="role">工作经历</p>
-                      <p>Mauris tincidunt fringilla erat at dictum. Morbi justo lacus, mollis sit amet sodales quis, mattis ut dui. Fusce porttitor rhoncus enim.</p>
-                      <p class="links">
-                        <a href=""><i class="fa fa-facebook"></i></a>
-                        <a href=""><i class="fa fa-twitter"></i></a>
-                        <a href=""><i class="fa fa-linkedin"></i></a>
-                        <a href=""><i class="fa fa-envelope"></i></a>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-            </div>
             
             
             

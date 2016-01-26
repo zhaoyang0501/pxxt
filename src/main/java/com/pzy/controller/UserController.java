@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.pzy.entity.User;
 import com.pzy.service.UserService;
 /***
+ * 学生管理
  * @author panchaoyang
  *qq 263608237
  */
