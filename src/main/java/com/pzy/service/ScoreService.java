@@ -76,6 +76,6 @@ public class ScoreService {
 			scoreRepository.save(score);
 		}
 		public List<Score> findByCategoryName(String name,User user){
-			  return scoreRepository.findByCategoryNameAndUser(name,user);
+			  return scoreRepository.findByUser(user);
 		}
 }

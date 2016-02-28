@@ -28,8 +28,8 @@
               Contact information start
 
               //-->
-              <p class="contacts"><i class="fa fa-phone"></i> 0451-88128600 </p>
-              <p class="contacts"><i class="fa fa-envelope"></i> <a href="">263608237@qq.com</a></p>
+              <p class="contacts"><i class="fa fa-phone"></i> 18368383861</p>
+              <p class="contacts"><i class="fa fa-envelope"></i> <a href="">296315778@qq.com</a></p>
               <ul class="social-btns">
                   <c:if test="${sessionScope.user!=null}">
                     <li style=" width: 250px;"><a href="center">欢迎您：${sessionScope.user.name }</a></li>
@@ -125,5 +125,33 @@
 
     //-->
     </header>
-   
+     <i class="glyphicon glyphicon-align-justify" id="envor-mobile-menu-btn"></i>
+    <div class="envor-mobile-menu" id="envor-mobile-menu">
+      <h3>菜单</h3>
+                                                                <nav>
+                  <ul>
+                    <li>
+                      <a href="index">首页</a>
+                    </li>
+                    <li>
+                      <a href="report">在线报名</a>
+                    </li>
+                      <li>
+                      <a href="grade">开班信息</a>
+                    </li>
+                    <li>
+                      <a href="teacher">名师风采</a>
+                    </li>
+                    <li>
+                      <a href="work">就业情况</a>
+                    </li>
+                    <li>
+                      <a href="about">公司简介</a>
+                    </li>
+                     <li>
+                      <a href="register">用户注册</a>
+                    </li>
+                  </ul>
+                </nav>
+    </div>
    

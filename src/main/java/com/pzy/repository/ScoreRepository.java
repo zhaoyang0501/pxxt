@@ -8,5 +8,6 @@ import com.pzy.entity.Score;
 import com.pzy.entity.User;
 public interface ScoreRepository extends PagingAndSortingRepository<Score, Long>,JpaSpecificationExecutor<Score>{
 	public List<Score> findByCategoryNameAndUser(String name,User user);
+	public List<Score> findByUser(User user);
 }
 

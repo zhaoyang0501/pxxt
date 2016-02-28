@@ -91,14 +91,6 @@
           <div class="row" id='fuckyou' style="margin-bottom: 30px;margin-top: 0px">
            <div class="col-lg-4"></div>
 			  <div class="col-lg-4">
-			  <form action="myattence"  method="post">
-			    <div class="input-group">
-			      <input type="text" name='key' class="form-control" placeholder="yyyy-mm">
-			      <span class="input-group-btn">
-			        <button class="btn btn-default" type="submit">查询</button>
-			      </span>
-			    </div>
-			     </form>
 			  </div>
 			  <div class="col-lg-4"></div>
 			</div>
