@@ -3,6 +3,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.data.domain.Page;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.ServletRequestDataBinder;
@@ -36,6 +38,20 @@ public class GradeController {
 	protected void initBinder(HttpServletRequest request,   ServletRequestDataBinder binder) throws Exception {   
 	    binder.registerCustomEditor(Date.class, new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true)); 
 	}  
+	/***
+	 * 自动任务，如果报名达标或者超过截止日期结束
+	 */
+	@Scheduled(cron = "* 0/50 * * * *")
+	public void AutoEndGrade(){
+		 List<Grade> grades=(List<Grade> ) gradeService.findAll();
+	   	 for(Grade grade: grades){
+	   		if(grade.getUsernum()>=30||grade.getReport().before(new Date(System.currentTimeMillis()))){
+	   			grade.setState("报名结束");
+	   			grade.setCreateDate(new Date(System.currentTimeMillis()));
+	   			this.save(grade);
+	   		}
+	   	 }
+	}
 	
 	@RequestMapping("index")
 	public String index(Model model) {

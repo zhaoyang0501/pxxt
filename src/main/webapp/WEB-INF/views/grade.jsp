@@ -91,6 +91,7 @@
 						<th>开班日期</th>
 						<th>截止报名日期</th>
 						<th>发布时间</th>
+						<th>报名率</th>
 						<th>状态</th>
 						<th>报名</th>
 				 </tr>
@@ -102,6 +103,7 @@
 						<th> <fmt:formatDate value="${bean.begin }" pattern="yyyy/MM/dd" />至<fmt:formatDate value="${bean.end }" pattern="yyyy/MM/dd" /> </th>
 						<th><fmt:formatDate value="${bean.report }" pattern="yyyy/MM/dd" /></th>
 						<th><fmt:formatDate value="${bean.createDate }" pattern="yyyy/MM/dd" /></th>
+					<th><span class="label label-info">${bean.usernum *100/30}%</span></th>
 					
 						<th><span class="label label-success">${bean.state }</span></th>
 						<th> <a href="">报名</a> </th>

@@ -14,11 +14,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.pzy.entity.Attence;
+import com.pzy.entity.Category;
 import com.pzy.entity.Grade;
 import com.pzy.entity.News;
 import com.pzy.entity.Report;
 import com.pzy.entity.User;
 import com.pzy.service.AttenceService;
+import com.pzy.service.CategoryService;
 import com.pzy.service.GradeService;
 import com.pzy.service.NewsService;
 import com.pzy.service.ReportService;
@@ -54,6 +56,8 @@ public class FrontController {
 	private TeacherService teacherService;
 	@Autowired
 	private NewsService newsService;
+	@Autowired
+	private CategoryService categoryService;
 	/***
 	 * 跳转到首页
 	 * @param model
@@ -264,6 +268,12 @@ public class FrontController {
 		model.addAttribute("week6", timetableService.findByGradeAndWeek(grade,6));
 		model.addAttribute("week7", timetableService.findByGradeAndWeek(grade,7));
 		return "viewgrade";
+	}
+	@RequestMapping("viewcategory")
+	public String viewcategory( Long id,Model model) {
+		Category category=categoryService.find(id);
+		model.addAttribute("category",category);
+		return "viewcategory";
 	}
 	/***
 	 * 执行登陆动作

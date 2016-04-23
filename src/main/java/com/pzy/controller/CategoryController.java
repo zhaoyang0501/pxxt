@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.pzy.entity.Category;
+import com.pzy.entity.News;
 import com.pzy.service.CategoryService;
 /***课程管理
  * @author panchaoyang
@@ -25,11 +26,25 @@ import com.pzy.service.CategoryService;
 public class CategoryController {
 	@Autowired
 	private CategoryService categoryService;
+	
 	@RequestMapping("index")
 	public String index(Model model) {
-		
       		return "admin/category/index";
 	}
+	
+	@RequestMapping(value = "/create", method = RequestMethod.POST)
+	public String save(Category category,Model model) {
+		category.setCreateDate(new Date());
+		categoryService.save(category);
+		model.addAttribute("tip","发布成功");
+		return "admin/category/create";
+	}
+		
+	@RequestMapping(value = "/create", method = RequestMethod.GET)
+	public String create() {
+		return "admin/category/create";
+	}
+	
 	
 	@RequestMapping(value = "/list", method = RequestMethod.POST)
 	@ResponseBody
@@ -51,6 +66,9 @@ public class CategoryController {
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	@ResponseBody
 	public Map<String, Object> save(Category category) {
+		Category newbean=categoryService.find(category.getId());
+		if(newbean!=null)
+			category.setRemark1(newbean.getRemark1());
 		category.setCreateDate(new Date());
 		categoryService.save(category);
 		Map<String, Object> map = new HashMap<String, Object>();

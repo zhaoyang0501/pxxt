@@ -82,7 +82,7 @@
             <div class="envor-team-1 envor-padding-left-10" >
                   <div class="envor-team-1-inner">
                     <header>
-                      <figure><img src="img/teacher_male.png" alt=""></figure>
+                      <figure><img height="100px" src="./upload/${bean.img }" alt=""></figure>
                       <div class="name">
                         <small>${bean.name }(${bean.year} )</small>
                         <p>${bean.level }</p>
@@ -91,6 +91,8 @@
                     <div class="envor-team-1-details">
                       <p class="role">工作经历</p>
                       <p>${bean.work }</p>
+                       <p class="role">承担课程</p>
+                      <p>${bean.remark1 }</p>
                       <p class="links">
                         <a href=""><i class="fa fa-facebook"></i></a>
                         <a href=""><i class="fa fa-twitter"></i></a>
@@ -98,6 +100,9 @@
                         <a href=""><i class="fa fa-envelope"></i></a>
                       </p>
                     </div>
+                    
+                   
+                    
                   </div>
                 </div>
             </div>

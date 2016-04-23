@@ -37,8 +37,6 @@
 									class="btn btn-info" data-loading-text="正在加载..."><i class="icon-search"></i>查询</a>
 							</div>
 							<div class="row-fluid ">
-								
-									<a class="btn btn-success" style="float: right; margin: 5px;" onclick="$.teacher.showUserAddModal()"><i class="icon-plus"></i>创建</a>
 								<table class="responsive table table-striped table-bordered"
 									id="dt_table_view">
 									<thead>
@@ -141,7 +139,12 @@
 								<textarea  id='remark' rows="3" cols="" name='remark'></textarea>
 								</div>
 							</div>
-							
+							<div class="control-group">
+								<label for="title" class="control-label">承担课程：</label>
+								<div class="controls">
+								<textarea  id='remark' rows="3" cols="" name='remark1'></textarea>
+								</div>
+							</div>
 							
 						</form>
 					</div>

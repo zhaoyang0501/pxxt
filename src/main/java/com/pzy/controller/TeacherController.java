@@ -1,8 +1,11 @@
 package com.pzy.controller;
+import java.io.File;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -13,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.pzy.entity.News;
 import com.pzy.entity.Teacher;
 import com.pzy.service.TeacherService;
 /***
@@ -26,6 +31,36 @@ import com.pzy.service.TeacherService;
 public class TeacherController {
 	@Autowired
 	private TeacherService teacherService;
+	
+	@RequestMapping(value = "/create", method = RequestMethod.GET)
+	public String create() {
+		return "admin/teacher/create";
+	}
+	@RequestMapping(value = "/create", method = RequestMethod.POST)
+	public String save(Teacher teacher,Model model,@RequestParam(value = "imgfile", required = false) MultipartFile file, HttpServletRequest request) {
+		
+		 System.out.println("开始");  
+	        String path = request.getSession().getServletContext().getRealPath("upload");  
+	        String fileName = file.getOriginalFilename();  
+ 
+	        File targetFile = new File(path, fileName);  
+	        if(!targetFile.exists()){  
+	            targetFile.mkdirs();  
+	        }  
+	  
+	        //保存  
+	        try {  
+	            file.transferTo(targetFile);  
+	        } catch (Exception e) {  
+	            e.printStackTrace();  
+	        }  
+	        
+	    teacher.setImg(fileName);
+		teacher.setCreateDate(new Date());
+		teacherService.save(teacher);
+		model.addAttribute("tip","发布成功");
+		return "admin/teacher/create";
+	}
 	@RequestMapping("index")
 	public String index(Model model) {
 		return "admin/teacher/index";
@@ -50,6 +85,10 @@ public class TeacherController {
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	@ResponseBody
 	public Map<String, Object> save(Teacher teacher) {
+		String img="";
+		if(teacher.getId()!=null)
+			 img=teacherService.find(teacher.getId()).getImg();
+		teacher.setImg(img);
 		teacher.setCreateDate(new Date());
 		teacherService.save(teacher);
 		Map<String, Object> map = new HashMap<String, Object>();

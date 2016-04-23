@@ -125,6 +125,7 @@ jQuery.teacher = {
     					$("#work").val(json.object.work);
     					$("#project").val(json.object.project);
     					$("#remark").val(json.object.remark);
+    					$("#remark1").val(json.object.remark1);
     				}else{
     					noty({"text":""+ json.msg +"","layout":"top","type":"warning"});
     				}

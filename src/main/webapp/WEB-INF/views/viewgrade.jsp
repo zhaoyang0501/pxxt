@@ -89,7 +89,7 @@
 						<ul>
 						<c:forEach items="${week1 }" var="bean">
 							 <li>
-		                      <span>${bean.begin }-${bean.begin }${bean.category.name }（${bean.teacher.name }） </span>
+		                      <span>${bean.begin }-${bean.begin }<a href="viewcategory?id=${bean.category.id }">${bean.category.name }</a> （${bean.teacher.name }） </span>
 		                    </li>
 						</c:forEach>
                 		  </ul>
@@ -146,7 +146,7 @@
 						<td><ul>
 						<c:forEach items="${week6 }" var="bean">
 							 <li>
-		                      <span>${bean.begin }-${bean.begin }${bean.category.name }（${bean.teacher.name }） </span>
+		                      <span>${bean.begin }-${bean.begin }<a href="viewcategory?id=${bean.category.id }">${bean.category.name }</a> （${bean.teacher.name }） </span>
 		                    </li>
 						</c:forEach>
                 		  </ul></td>

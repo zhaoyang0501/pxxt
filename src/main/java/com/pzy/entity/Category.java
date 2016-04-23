@@ -1,6 +1,8 @@
 package com.pzy.entity;
 import java.util.Date;
 
+
+import javax.persistence.Column;
 /***
  * 分类
  *
@@ -30,6 +32,16 @@ public class Category {
 	
 	private Date createDate;
 	
+	@Column(columnDefinition="TEXT") 
+	private String remark1;
+	
+	
+	public String getRemark1() {
+		return remark1;
+	}
+	public void setRemark1(String remark1) {
+		this.remark1 = remark1;
+	}
 	public Long getId() {
 		return id;
 	}

@@ -31,6 +31,22 @@ public class Teacher implements Serializable {
 	private String remark;
 	private String year;
 	private String project;
+	private String remark1;
+	
+	public String getRemark1() {
+		return remark1;
+	}
+	public void setRemark1(String remark1) {
+		this.remark1 = remark1;
+	}
+	private String img;
+	
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
+	}
 	public String getProject() {
 		return project;
 	}

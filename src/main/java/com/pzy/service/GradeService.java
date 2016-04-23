@@ -1,6 +1,7 @@
 
 package com.pzy.service;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -8,25 +9,34 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
+import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.pzy.entity.Grade;
 import com.pzy.repository.GradeRepository;
+import com.pzy.repository.ReportRepository;
 /***
  * 
  * @author qq:263608237
  *
  */
+@Component
 @Service
 public class GradeService {
      @Autowired
      private GradeRepository gradeRepository;
+     @Autowired
+     private ReportRepository reportRepository;
 
  	public List<Grade> findTop3() {
  		return gradeRepository.findAll(
@@ -34,7 +44,11 @@ public class GradeService {
  				.getContent();
  	}
      public List<Grade> findAll() {
-         return (List<Grade>) gradeRepository.findAll(new Sort(Direction.DESC, "id"));
+    	 List<Grade> grades=(List<Grade> ) gradeRepository.findAll(new Sort(Direction.DESC, "id"));
+    	 for(Grade grade: grades){
+    		 grade.setUsernum(reportRepository.findByGrade(grade).size());
+    	 }
+    	 return grades;
      }
      public Page<Grade> findAll(final int pageNumber, final int pageSize,final String name){
          PageRequest pageRequest = new PageRequest(pageNumber - 1, pageSize, new Sort(Direction.DESC, "id"));
@@ -73,5 +87,23 @@ public class GradeService {
 		}
 		public void save(Grade grade){
 			gradeRepository.save(grade);
+		}
+		
+		
+		public void AutoEndGrade(){
+			System.out.println("fuckyou!----");
+			 List<Grade> grades=(List<Grade> ) gradeRepository.findAll(new Sort(Direction.DESC, "id"));
+	    	 for(Grade grade: grades){
+	    		 grade.setUsernum(reportRepository.findByGrade(grade).size());
+	    	 }
+	    	 
+	    	 for(Grade grade: grades){
+	    		if(grade.getUsernum()>=30||grade.getEnd().before(new Date(System.currentTimeMillis()))){
+	    			grade.setState("报名结束");
+	    			grade.setCreateDate(new Date(System.currentTimeMillis()));
+	    			this.save(grade);
+	    		}
+	    	 }
+	    	 System.out.println("fuckyouend!----");
 		}
 }

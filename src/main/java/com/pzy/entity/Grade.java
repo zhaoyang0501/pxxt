@@ -34,6 +34,15 @@ public class Grade {
 	@JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+08:00")
 	private Date end;
 	private String state;
+	
+	private Integer usernum;
+	
+	public Integer getUsernum() {
+		return usernum;
+	}
+	public void setUsernum(Integer usernum) {
+		this.usernum = usernum;
+	}
 	public String getState() {
 		return state;
 	}
