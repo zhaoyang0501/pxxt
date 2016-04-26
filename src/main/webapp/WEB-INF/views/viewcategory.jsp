@@ -61,7 +61,7 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="envor-desktop-breadscrubs-inner">
-                <a href="index.html">首页</a><i class="fa fa-angle-double-right"></i>开班信息
+                <a href="index.html">首页</a><i class="fa fa-angle-double-right"></i>课程介绍
               </div>
             </div>
           </div>
@@ -75,101 +75,13 @@
 			<article >
                   
                 <header>
-                  <h3 style="margin-top: 0px;"><i class="fa fa-pencil"></i> <span>${grade.name }</span>  <span class="label label-success">${grade.state }</span></h3>
-             
+                  <h3 style="margin-top: 0px;"><i class="fa fa-pencil"></i> <span>${category.name }</span>  <span class="label label-success">${grade.state }</span></h3>
                 </header>
-                <p>开班时间：2016-01-12</p>
-                  <p>课程介绍：欢迎大家报名，包就业！  ${grade.remark }</p>
-                    <p>课表：</p>
-              	<table class="table table-bordered">
-				<tbody>
-					<tr>
-						<td>星期一</td>
-						<td>
-						<ul>
-						<c:forEach items="${week1 }" var="bean">
-							 <li>
-		                      <span>${bean.begin }-${bean.begin }<a href="viewcategory?id=${bean.category.id }">${bean.category.name }</a> （${bean.teacher.name }） </span>
-		                    </li>
-						</c:forEach>
-                		  </ul>
-						</td>
-					 </tr>
-					<tr>
-						<td>星期二</td>
-						<td><ul>
-						<c:forEach items="${week2 }" var="bean">
-							 <li>
-		                      <span>${bean.begin }-${bean.begin }<a href="viewcategory?id=${bean.category.id }">${bean.category.name }</a>（${bean.teacher.name }） </span>
-		                    </li>
-						</c:forEach>
-                		  </ul></td>
-					 </tr>
-					 <tr>
-						<td>星期三</td>
-						<td><ul>
-						<c:forEach items="${week3 }" var="bean">
-							 <li>
-		                      <span>${bean.begin }-${bean.begin }<a href="viewcategory?id=${bean.category.id }">${bean.category.name }</a>（${bean.teacher.name }） </span>
-		                    </li>
-						</c:forEach>
-                		  </ul></td>
-					 </tr>
-					 
-					 <tr>
-						<td>星期四</td>
-						<td><ul>
-						<c:forEach items="${week4 }" var="bean">
-							 <li>
-		                      <span>${bean.begin }-${bean.begin }<a href="viewcategory?id=${bean.category.id }">${bean.category.name }</a>（${bean.teacher.name }） </span>
-		                    </li>
-						</c:forEach>
-                		  </ul></td>
-					 </tr>
-					 
-					 
-					 <tr>
-						<td>星期五</td>
-						<td><ul>
-						<c:forEach items="${week5 }" var="bean">
-							 <li>
-		                      <span>${bean.begin }-${bean.begin }<a href="viewcategory?id=${bean.category.id }">${bean.category.name }</a>（${bean.teacher.name }） </span>
-		                    </li>
-						</c:forEach>
-                		  </ul></td>
-					 </tr>
-					 
-					 
-					  
-					 <tr>
-						<td>星期六</td>
-						<td><ul>
-						<c:forEach items="${week6 }" var="bean">
-							 <li>
-		                      <span>${bean.begin }-${bean.begin }<a href="viewcategory?id=${bean.category.id }">${bean.category.name }</a> （${bean.teacher.name }） </span>
-		                    </li>
-						</c:forEach>
-                		  </ul></td>
-					 </tr>
-					 
-					 
-					  
-					 <tr>
-						<td>星期日</td>
-						<td><ul>
-						<c:forEach items="${week7 }" var="bean">
-							 <li>
-		                      <span>${bean.begin }-${bean.begin }<a href="viewcategory?id=${bean.category.id }">${bean.category.name }</a>（${bean.teacher.name }） </span>
-		                    </li>
-						</c:forEach>
-                		  </ul></td>
-					 </tr>
-				</tbody>
-			</table>
+               <div>
+               	${category.remark1 }
+               </div>
+              
               </article>   
-              <p style="text-align: center">
-                <a href="report" class="envor-btn envor-btn-primary envor-btn-normal"><i class="glyphicon glyphicon-check"></i> 立即报名!</a>
-              </p>        		 		
           </div>
         </div>
       </section>
